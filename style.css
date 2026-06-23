@@ -1,0 +1,145 @@
+/* Tool Factory base theme — light, fast, responsive, no framework. */
+:root {
+  --accent: #ef4444;
+  --bg: #f3f4f6;
+  --fg: #1f2937;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --panel: #ffffff;
+  --radius: 10px;
+  --maxw: 820px;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--fg);
+  background: var(--bg);
+}
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+a { color: var(--accent); }
+h1 { font-size: 1.9rem; margin: 1.2rem 0 .4rem; line-height: 1.2; }
+h2 { font-size: 1.3rem; margin: 2rem 0 .6rem; }
+.tagline { color: var(--muted); font-size: 1.1rem; margin: 0 0 1.5rem; }
+
+.skip { position: absolute; left: -9999px; }
+.skip:focus { left: 12px; top: 12px; background: #fff; padding: 8px 12px; z-index: 10; }
+
+.site-header { border-bottom: 1px solid var(--border); }
+.site-header .wrap { display: flex; align-items: center; gap: 12px; padding: 12px 20px; flex-wrap: wrap; }
+.logo { font-weight: 700; text-decoration: none; color: var(--fg); display: inline-flex; align-items: center; gap: 9px; }
+.logo-mark { display: inline-flex; }
+.logo-mark svg { width: 26px; height: 26px; display: block; }
+.badge { font-size: .8rem; color: var(--muted); background: var(--panel); border: 1px solid var(--border); border-radius: 999px; padding: 3px 10px; }
+
+.tool {
+  border: 2px solid color-mix(in srgb, var(--accent) 35%, var(--border));
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--accent) 5%, var(--panel));
+  padding: 24px;
+  min-height: 180px;
+  box-shadow: 0 2px 14px rgba(0,0,0,.05);
+}
+.tool-loading { color: var(--muted); }
+
+/* hero — minimal, no header bar: just logo + title + one line, then the tool */
+.hero { margin: 1.6rem 0 1rem; }
+.hero .logo-mark { display: inline-flex; margin-bottom: 6px; }
+.hero .logo-mark svg { width: 44px; height: 44px; display: block; }
+.hero h1 { font-size: 1.8rem; margin: 0 0 .3rem; line-height: 1.2; }
+.hero .tagline { color: var(--muted); font-size: 1.05rem; margin: 0; }
+.hero .trust { font-size: .82rem; color: var(--muted); margin: .5rem 0 0; }
+
+/* tool zone — the hero action of the page */
+.tool-zone { margin: 1.1rem 0 1.4rem; }
+.tool-cue, .input-cue {
+  font-weight: 700; font-size: .9rem; color: var(--accent);
+  margin: 0 0 8px; text-align: center; letter-spacing: .01em;
+}
+
+/* secondary supporting content — kept for SEO but compact + visually lighter */
+.details { margin-top: 2.4rem; border-top: 1px solid var(--border); padding-top: .4rem; }
+.details h2 { font-size: 1.05rem; margin: 1.5rem 0 .5rem; }
+.details p, .details li { font-size: .94rem; }
+.details .about p { color: var(--muted); }
+.privacy-note { margin-top: 1rem; font-size: .9rem; color: var(--muted); }
+
+/* ---- per-site "vibes": light decorative touch for consumer tools only ----
+   Dev/utility tools have no [data-vibe] and stay plain & fast. */
+body[data-vibe="celestial"] {
+  background: radial-gradient(820px 340px at 50% -150px,
+    color-mix(in srgb, var(--accent) 18%, var(--bg)), var(--bg)) no-repeat;
+}
+body[data-vibe="celestial"] .tool-cue::before { content: "✦ "; }
+
+body[data-vibe="romantic"] {
+  background: radial-gradient(820px 340px at 50% -150px,
+    color-mix(in srgb, var(--accent) 14%, var(--bg)), var(--bg)) no-repeat;
+}
+body[data-vibe="romantic"] .tool-cue::before { content: "♥ "; }
+
+body[data-vibe="sport"] .tool { border-top: 5px solid var(--accent); }
+body[data-vibe="sport"] .tool-cue { text-transform: uppercase; letter-spacing: .06em; }
+body[data-vibe="sport"] button { letter-spacing: .03em; }
+
+/* Standard hooks app.js can use (drop zone, buttons, output) */
+.dropzone {
+  border: 3px dashed var(--accent); border-radius: var(--radius);
+  padding: 48px 32px; text-align: center; color: var(--muted);
+  background: #fff; cursor: pointer; transition: background .15s, border-color .15s;
+  min-height: 140px; font-size: 1.1rem; font-weight: 600;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+}
+.dropzone:hover { background: color-mix(in srgb, var(--accent) 8%, #fff); }
+.dropzone.dragover { background: #eef2ff; border-color: var(--accent); }
+textarea, input[type="text"], input[type="number"], input[type="date"],
+input[type="email"], input[type="search"], input[type="time"], input[type="tel"], select {
+  width: 100%; font: inherit; font-size: 1.05rem; padding: 14px 15px;
+  border: 2px solid var(--border); border-radius: 10px; background: #fff; color: var(--fg);
+  transition: border-color .15s, box-shadow .15s; min-height: 52px;
+}
+textarea:focus, input:focus, select:focus {
+  outline: none; border-color: var(--accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 22%, transparent);
+}
+textarea { min-height: 180px; font-family: ui-monospace, "Cascadia Code", Consolas, monospace; font-size: .98rem; }
+label { display: inline-block; font-weight: 600; margin-bottom: 6px; }
+button, .btn {
+  font: inherit; font-size: 1.02rem; font-weight: 700; cursor: pointer;
+  background: var(--accent); color: #fff; border: 0; border-radius: 9px; padding: 13px 24px;
+}
+button.secondary { background: #fff; color: var(--fg); border: 1px solid var(--border); }
+button:disabled { opacity: .5; cursor: default; }
+.controls { display: flex; gap: 10px; flex-wrap: wrap; margin: 12px 0; }
+.output { margin-top: 14px; }
+.notice, .error { padding: 10px 12px; border-radius: 8px; font-size: .92rem; }
+.error { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+
+.feature-list { padding-left: 1.1rem; }
+.feature-list li { margin: .3rem 0; }
+.howto-steps li { margin: .5rem 0; }
+
+details { border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; margin: 10px 0; background: var(--panel); color: var(--fg); }
+details summary { font-weight: 600; cursor: pointer; color: var(--fg); }
+details p { margin: .6rem 0 0; color: var(--fg); }
+
+.ad-slot {
+  margin: 22px 0; padding: 16px; text-align: center;
+  border: 1px dashed var(--border); border-radius: var(--radius); background: var(--panel);
+  color: var(--muted); font-size: .9rem;
+}
+.ad-slot .sponsors { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-top: 10px; }
+.ad-slot .sponsors a img { height: 28px; opacity: .85; }
+
+.privacy { margin-top: 1.5rem; }
+.site-footer { border-top: 1px solid var(--border); margin-top: 3rem; color: var(--muted); font-size: .9rem; }
+.site-footer .wrap { padding: 18px 20px; }
+
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#0b0f17; --fg:#e5e7eb; --muted:#9ca3af; --border:#1f2937; --panel:#111827; }
+  .dropzone { background:#0f1623; }
+  textarea, input, select { background:#0f1623; color:var(--fg); }
+  button.secondary { background:#0f1623; color:var(--fg); }
+  .error { background:#2a1414; color:#fca5a5; border-color:#7f1d1d; }
+}

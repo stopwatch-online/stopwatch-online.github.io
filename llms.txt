@@ -1,0 +1,32 @@
+# Online Stopwatch
+
+> Free online stopwatch that times multiple events at once. Run several independent stopwatches in parallel, record lap/split times, and start or stop them all together. Runs in your browser, no sign-up.
+
+URL: https://stopwatch-online.github.io/
+Price: Free. Runs 100% in the browser — no upload, no sign-up.
+
+## Features
+- Time multiple events in parallel — add as many stopwatch lanes as you need
+- Per-event start/pause, lap (split) times, and reset
+- Start all, stop all and reset all with one click
+- Editable event names so you know which lane is which
+- Lap list per event with total time and delta from the previous lap
+- High-precision timing; keeps running across page refreshes
+- 100% in your browser — no account, no upload, works offline
+
+## FAQ
+### Can I time more than one thing at the same time?
+Yes — that's the point. Add a lane per event, name them, and run them in parallel. You can start and stop each independently or use Start All / Stop All to control them together.
+
+### How accurate is the stopwatch?
+It uses your browser's high-resolution clock (performance.now) and updates smoothly, so it's accurate to hundredths of a second for normal use. Background tabs may throttle updates slightly, but elapsed time stays correct.
+
+### What are lap or split times?
+A lap records the elapsed time at the moment you tap it without stopping the clock. The lap list shows each lap's total time and how long it was since the previous lap.
+
+### Does it keep running if I refresh or close the tab?
+Your events and their times are saved locally in your browser, so a refresh restores them and a running stopwatch keeps counting. Clearing your browser data will reset them.
+
+### Is anything uploaded?
+No. The stopwatch runs entirely in your browser. No account, no server — your data never leaves your device.
+

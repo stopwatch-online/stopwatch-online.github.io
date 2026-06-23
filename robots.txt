@@ -1,0 +1,18 @@
+# Welcome search + AI crawlers (we WANT citations in ChatGPT / Perplexity / Google AI).
+User-agent: *
+Allow: /
+
+# Named AI crawlers (explicit, for clarity)
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://stopwatch-online.github.io/sitemap.xml
+# AI brief: https://stopwatch-online.github.io/llms.txt

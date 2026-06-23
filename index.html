@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Online Stopwatch — Multi-Event Stopwatch with Laps (Free)</title>
+  <meta name="description" content="Free online stopwatch that times multiple events at once. Run several independent stopwatches in parallel, record lap/split times, and start or stop them all together. Runs in your browser, no sign-up.">
+  <link rel="canonical" href="https://stopwatch-online.github.io/">
+  <meta name="theme-color" content="#ef4444">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="generator" content="tool-factory">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2032%2032'%3E%3Crect%20width%3D'32'%20height%3D'32'%20rx%3D'6'%20fill%3D'%23ef4444'%2F%3E%3Ctext%20x%3D'16'%20y%3D'22'%20font-size%3D'18'%20font-family%3D'sans-serif'%20fill%3D'white'%20text-anchor%3D'middle'%3EONLINE%20STOPWATCH%3C%2Ftext%3E%3C%2Fsvg%3E">
+  <!-- SEO: OpenGraph + Twitter + JSON-LD structured data -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://stopwatch-online.github.io/">
+  <meta property="og:title" content="Online Stopwatch — Multi-Event Stopwatch with Laps (Free)">
+  <meta property="og:description" content="Free online stopwatch that times multiple events at once. Run several independent stopwatches in parallel, record lap/split times, and start or stop them all together. Runs in your browser, no sign-up.">
+  <meta property="og:site_name" content="Online Stopwatch">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Online Stopwatch — Multi-Event Stopwatch with Laps (Free)">
+  <meta name="twitter:description" content="Free online stopwatch that times multiple events at once. Run several independent stopwatches in parallel, record lap/split times, and start or stop them all together. Runs in your browser, no sign-up.">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Online Stopwatch",
+      "url": "https://stopwatch-online.github.io/",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any (web browser)",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Free online stopwatch that times multiple events at once. Run several independent stopwatches in parallel, record lap/split times, and start or stop them all together. Runs in your browser, no sign-up.",
+      "author": {
+        "@type": "Organization",
+        "name": "Tool Factory"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can I time more than one thing at the same time?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — that's the point. Add a lane per event, name them, and run them in parallel. You can start and stop each independently or use Start All / Stop All to control them together."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How accurate is the stopwatch?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It uses your browser's high-resolution clock (performance.now) and updates smoothly, so it's accurate to hundredths of a second for normal use. Background tabs may throttle updates slightly, but elapsed time stays correct."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are lap or split times?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A lap records the elapsed time at the moment you tap it without stopping the clock. The lap list shows each lap's total time and how long it was since the previous lap."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it keep running if I refresh or close the tab?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Your events and their times are saved locally in your browser, so a refresh restores them and a running stopwatch keeps counting. Clearing your browser data will reset them."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is anything uploaded?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The stopwatch runs entirely in your browser. No account, no server — your data never leaves your device."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "name": "How to use Online Stopwatch",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "text": "Click Start on an event lane to begin timing — or Start All to launch every lane together."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "text": "Add more events with the Add Event button and rename each lane to match what you're timing."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "text": "Tap Lap to record a split; the lap list shows total time and the gap since the last lap."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "text": "Use Pause/Reset per lane, or Stop All / Reset All to control everything at once."
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-vibe="sport">
+  <a class="skip" href="#tool">Skip to the tool</a>
+
+  <main class="wrap">
+    <header class="hero">
+      <span class="logo-mark" aria-hidden="true"></span>
+      <h1>Online Stopwatch — Time Multiple Events at Once</h1>
+      <p class="tagline">Run several stopwatches in parallel, record laps, and start/stop them all together — free, in your browser.</p>
+      <p class="trust">Free · No sign-up · Runs entirely in your browser</p>
+    </header>
+
+    <!-- THE TOOL — the hero of the page. app.js renders its UI into #tool. -->
+    <section class="tool-zone">
+      <p class="tool-cue" aria-hidden="true">↓ Enter your details below to start</p>
+      <section id="tool" class="tool" data-keyword="stopwatch-online" aria-label="Online Stopwatch">
+        <noscript>
+          <p class="notice">This tool runs entirely in your browser and needs JavaScript enabled.</p>
+        </noscript>
+        <p class="tool-loading">Loading Online Stopwatch…</p>
+      </section>
+    </section>
+
+
+
+    <!-- Secondary, compact supporting content (kept concise; below the tool). -->
+    <div class="details">
+      <section class="howto" aria-label="How to use">
+        <h2>How to use</h2>
+        <ol class="howto-steps">
+        <li>Click Start on an event lane to begin timing — or Start All to launch every lane together.</li>
+        <li>Add more events with the Add Event button and rename each lane to match what you&#39;re timing.</li>
+        <li>Tap Lap to record a split; the lap list shows total time and the gap since the last lap.</li>
+        <li>Use Pause/Reset per lane, or Stop All / Reset All to control everything at once.</li>
+        </ol>
+      </section>
+
+      <section class="features" aria-label="Features">
+        <h2>Features</h2>
+        <ul class="feature-list">
+        <li>Time multiple events in parallel — add as many stopwatch lanes as you need</li>
+        <li>Per-event start/pause, lap (split) times, and reset</li>
+        <li>Start all, stop all and reset all with one click</li>
+        <li>Editable event names so you know which lane is which</li>
+        <li>Lap list per event with total time and delta from the previous lap</li>
+        <li>High-precision timing; keeps running across page refreshes</li>
+        <li>100% in your browser — no account, no upload, works offline</li>
+        </ul>
+      </section>
+
+      <section class="faq" aria-label="Frequently asked questions">
+        <h2>FAQ</h2>
+      <details>
+        <summary>Can I time more than one thing at the same time?</summary>
+        <p>Yes — that&#39;s the point. Add a lane per event, name them, and run them in parallel. You can start and stop each independently or use Start All / Stop All to control them together.</p>
+      </details>
+      <details>
+        <summary>How accurate is the stopwatch?</summary>
+        <p>It uses your browser&#39;s high-resolution clock (performance.now) and updates smoothly, so it&#39;s accurate to hundredths of a second for normal use. Background tabs may throttle updates slightly, but elapsed time stays correct.</p>
+      </details>
+      <details>
+        <summary>What are lap or split times?</summary>
+        <p>A lap records the elapsed time at the moment you tap it without stopping the clock. The lap list shows each lap&#39;s total time and how long it was since the previous lap.</p>
+      </details>
+      <details>
+        <summary>Does it keep running if I refresh or close the tab?</summary>
+        <p>Your events and their times are saved locally in your browser, so a refresh restores them and a running stopwatch keeps counting. Clearing your browser data will reset them.</p>
+      </details>
+      <details>
+        <summary>Is anything uploaded?</summary>
+        <p>No. The stopwatch runs entirely in your browser. No account, no server — your data never leaves your device.</p>
+      </details>
+      </section>
+
+      <section class="about" aria-label="About">
+      <p>A normal stopwatch times one thing. This one lets you time several events at the same time — give each its own lane, name it, and start, pause, lap and reset them independently, or control them all at once.</p>
+      <p>Perfect for timing multiple runners, tasks, cooking steps, or experiments in one shot. It&#39;s accurate (uses your browser&#39;s high-resolution clock), keeps running if you refresh, and works entirely on your device — nothing is uploaded.</p>
+        <p class="privacy-note">🔒 Online Stopwatch runs 100% in your browser — nothing is uploaded.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; 2026 Online Stopwatch · Built by Tool Factory</p>
+    </div>
+  </footer>
+
+
+  <script src="app.js" defer></script>
+
+</body>
+</html>
